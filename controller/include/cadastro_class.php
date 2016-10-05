@@ -1,9 +1,9 @@
 <?php
+include('pesssoa/pessoaFisica.class.php');
 
 class Cadastro {
 
       public function pessoaFisica(){
-            try {
                   $pessoaFisica = new PessoaFisica($_rg, $_cpf, $_org, $_uf);
 
                   $pessoaFisica->setNome($_nome);
@@ -17,11 +17,11 @@ class Cadastro {
                   $pessoaFisica->setCpf($_cpf);
                   $pessoaFisica->setBairro($_bairro);
                   $pessoaFisica->setCidade($_cidade);
-            } catch (Exception $e) {
-                  echo '<script>alert("Ocorreu um erro ao cadastro de pessoa física!")</script>';
-            }
+
+                  return " - entrou!";
+
       }
-      public function pessoaJuridica(){
+      /*public function pessoaJuridica(){
             try {
                   $pessoaJuridica = new PessoaJuridica($_cnpj, $_razaoSocial, $_inscEstd, $_tmkting);
 
@@ -38,5 +38,5 @@ class Cadastro {
             } catch (Exception $e) {
                   echo '<script>alert("Ocorreu um erro ao cadastro de pessoa Jurídica!")</script>';
             }
-      }
+      }*/
 }

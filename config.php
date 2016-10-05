@@ -15,7 +15,7 @@
 
 */
 // ----- conexao banco -----
-require('../model/mysql.php');
+//require('../model/mysql.php');
 
 if (!defined('LIVE')) DEFINE('LIVE', false);
 // ************ CONSTANTS *********** //

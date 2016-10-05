@@ -84,15 +84,14 @@
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Cidade!")</script>';
-        }
+      }
       }
       if (!$erro_campo){
-          $cadastro = new Cadastro();
+        include('include/cadastro.class.php');
 
-          $cadastro->pessoaFisica();
-          $cadastro->pessoaJuridica();
 
-          $cadastroDb = CadastroDbUser(new PessoaFisica());
-
+        $cadastro = new Cadastro();
+        echo $cadastro->pessoaFisica()."<br>";
+        var_dump($cadastro);
 
       }
