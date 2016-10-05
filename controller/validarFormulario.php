@@ -1,5 +1,5 @@
 <?php
-//include ('../config.php');
+include('../config.php');
 
 
       $erro_campo = false;
@@ -89,9 +89,9 @@
       if (!$erro_campo){
         include('include/cadastro.class.php');
 
+        $cadastro = new Cadastro($_name, $_email);
 
-        $cadastro = new Cadastro();
-        echo $cadastro->pessoaFisica()."<br>";
-        var_dump($cadastro);
+        $_cad = $cadastro->setPessoaFisica()."<br>";
+        var_dump($_cad);
 
       }

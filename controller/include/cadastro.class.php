@@ -1,26 +1,34 @@
 <?php
+ include ('pessoa/pessoaFisica.class.php');
+
 class Cadastro {
-
-      public function pessoaFisica(){
-      
-                  /*$pessoaFisica = new PessoaFisica($_rg, $_cpf, $_org, $_uf);
-
-                  $pessoaFisica->setNome($_nome);
-                  $pessoaFisica->setEmail($_email);
-                  $pessoaFisica->setCpf($_cpf);
-                  $pessoaFisica->setRg($_rg);
-                  $pessoaFisica->setOrgExp($_org);
-                  $pessoaFisica->setUf($_uf);
-                  $pessoaFisica->setRua($_rua);
-                  $pessoaFisica->setNumeroKsa($_num_ksa);
-                  $pessoaFisica->setCpf($_cpf);
-                  $pessoaFisica->setBairro($_bairro);
-                  $pessoaFisica->setCidade($_cidade);*/
-
-                  return " - entrou!";
-
+      private $nome;
+      private $emial;
+      public function __construct($_name, $_email){
+            $this->nome = $_name;
+            $this->email = $_email;
       }
-      /*public function pessoaJuridica(){
+      public function setPessoaFisica(){
+            try {
+                  $pessoaFisica = new PessoaFisica();
+
+                  $pessoaFisica->setNome($this->nome);
+                  $pessoaFisica->setEmail($this->email);
+                  //$pessoaFisica->setCpf($_cpf);
+                  //$pessoaFisica->setRg($_rg);
+                  //$pessoaFisica->setOrgExp($_org);
+                  //$pessoaFisica->setUf($_uf);
+                  //$pessoaFisica->setRua($_rua);
+                  //$pessoaFisica->setNumeroKsa($_num_ksa);
+                  //$pessoaFisica->setCpf($_cpf);
+                  //$pessoaFisica->setBairro($_bairro);
+                  //$pessoaFisica->setCidade($_cidade);
+                  return $pessoaFisica->getNome()." - ".$pessoaFisica->getEmail();
+            } catch (Exception $e) {
+
+            }
+      }
+      public function pessoaJuridica(){
             try {
                   $pessoaJuridica = new PessoaJuridica($_cnpj, $_razaoSocial, $_inscEstd, $_tmkting);
 
@@ -37,5 +45,12 @@ class Cadastro {
             } catch (Exception $e) {
                   echo '<script>alert("Ocorreu um erro ao cadastro de pessoa Jurídica!")</script>';
             }
-      }*/
+      }
+      public function setAddress(){
+            try {
+                  
+            } catch (Exception $e) {
+
+            }
+      }
 }
