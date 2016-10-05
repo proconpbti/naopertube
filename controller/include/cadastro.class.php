@@ -4,53 +4,69 @@
 class Cadastro {
       private $nome;
       private $emial;
-      public function __construct($_name, $_email){
+      private $cpf;
+      private $rg;
+      private $org;
+      private $uf;
+      private $rua;
+      private $numKsa;
+      private $cep;
+      private $bairro;
+      private $cidade;
+
+      public function __construct($_name, $_email, $_cpf, $_rg, $_org, $_uf, $_rua, $_num_ksa, $_cep, $_bairro, $_cidade){
             $this->nome = $_name;
             $this->email = $_email;
+            $this->cpf = $_cpf;
+            $this->rg = $_rg;
+            $this->org = $_org;
+            $this->uf = $_uf;
+            $this->rua = $_rua;
+            $this->numKsa = $_num_ksa;
+            $this->cep = $_cep;
+            $this->bairro = $_bairro;
+            $this->cidade = $_cidade;
       }
       public function setPessoaFisica(){
             try {
                   $pessoaFisica = new PessoaFisica();
 
-                  $pessoaFisica->setNome($this->nome);
-                  $pessoaFisica->setEmail($this->email);
-                  //$pessoaFisica->setCpf($_cpf);
-                  //$pessoaFisica->setRg($_rg);
-                  //$pessoaFisica->setOrgExp($_org);
-                  //$pessoaFisica->setUf($_uf);
-                  //$pessoaFisica->setRua($_rua);
-                  //$pessoaFisica->setNumeroKsa($_num_ksa);
-                  //$pessoaFisica->setCpf($_cpf);
-                  //$pessoaFisica->setBairro($_bairro);
-                  //$pessoaFisica->setCidade($_cidade);
-                  return $pessoaFisica->getNome()." - ".$pessoaFisica->getEmail();
-            } catch (Exception $e) {
+                  $pessoaFisica->setCpf($this->cpf);
+                  $pessoaFisica->setRg($this->rg);
+                  $pessoaFisica->setOrgExp($this->org);
+                  $pessoaFisica->setUf($this->uf);
 
+                  $this->setAddress($pessoaFisica);
+            } catch (Exception $e) {
+                  echo '<script>alert("Ocorreu um erro ao cadastro de pessoa Física!")</script>';
             }
       }
-      public function pessoaJuridica(){
+      public function setPessoaJuridica(){
             try {
-                  $pessoaJuridica = new PessoaJuridica($_cnpj, $_razaoSocial, $_inscEstd, $_tmkting);
+                  $pessoaJuridica = new PessoaJuridica();
 
-                  $pessoaJuridica->setNome($_nome);
-                  $pessoaJuridica->setEmail($_email);
-                  $pessoaJuridica->setRua($_rua);
-                  $pessoaJuridica->setNumeroKsa($_num_ksa);
-                  $pessoaJuridica->setBairro($_bairro);
-                  $pessoaJuridica->setCidade($_cidade);
                   $pessoaJuridica->setCnpj($_cnpj);
                   $pessoaJuridica->setRazaoSocial($_razaoSocial);
                   $pessoaJuridica->setInscEstd($_inscEstd);
                   $pessoaJuridica->setTmkting($_tmkting);
+
+                  $this->setAddress($pessoaJuridica);
             } catch (Exception $e) {
                   echo '<script>alert("Ocorreu um erro ao cadastro de pessoa Jurídica!")</script>';
             }
       }
-      public function setAddress(){
+      public function setAddress($pessoa){
             try {
-                  
-            } catch (Exception $e) {
+                  $pessoa->setNome($this->nome);
+                  $pessoa->setEmail($this->email);
+                  $pessoa->setRua($this->rua);
+                  $pessoa->setBairro($this->bairro);
+                  $pessoa->setCep($this->cep);
+                  $pessoa->setNumeroKsa($this->numKsa);
+                  $pessoa->setCidade($this->cidade);
 
+            } catch (Exception $e) {
+                  echo '<script>alert("Ocorreu um erro ao cadastro de endereço!")</script>';
             }
       }
 }
