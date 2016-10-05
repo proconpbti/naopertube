@@ -24,13 +24,3 @@
     include('views/tampletes/header.tpl');
     // ----- importar o conteudo html -----
     include('views/tampletes/contenter.tpl');
-
-
-
-/*// ----- verificar instacia de classe -----
-echo "Teste classe";
-include('controller/include/classe_teste.php');
-$classe = new Classe();
-echo $classe->getTxt()."<br>";
-var_dump($classe);
-*/

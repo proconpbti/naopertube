@@ -87,6 +87,9 @@ include('../config.php');
       }
       }
       if (!$erro_campo){
-        include('include/cadastro.class.php');
-        $cadastro = new Cadastro($_name, $_email, $_cpf, $_rg, $_org, $_uf, $_rua, $_num_ksa, $_cep, $_bairro, $_cidade);
+        include ('include/cadastro.class.php');
+            new Cadastro($_name, $_email, $_cpf, $_rg, $_org, $_uf, $_rua, $_num_ksa, $_cep, $_bairro, $_cidade);
+
+        require ('../model/daoDb/cadastroDbUser.class.php');
+
       }

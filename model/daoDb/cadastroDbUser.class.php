@@ -1,10 +1,14 @@
 <?php
-require ('./mysql.php');
-include (../../controller/object_usuario/PessoaFisica.php);
+require ('../mysql.php');
+include ('controller/include/pessoa/pessoa.class.php');
 
 class CadastroDbUser{
     private $pessoa;
-    public cadastrarPessoaFisica($pessoaFisica){
+
+    public function __construct(){
+        cadastrarPessoaFisica(new pessoaFisica());
+    }
+    public function cadastrarPessoaFisica($pessoaFisica){
           $this->pessoa = $pessoaFisica;
           // ----- cadastro documento pessoa fisica -----
           try {
