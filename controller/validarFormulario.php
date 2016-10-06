@@ -1,13 +1,13 @@
 <?php
 include('../config.php');
 
+    $erro_campo = false;
 
-      $erro_campo = false;
-      // ----- validar campos cadastrar -----
-      if($_REQUEST["action"] == "save") {
+    /*    // ----- validar campos cadastrar -----
+   if($_REQUEST["action"] == "save") {
 
-        // ----- validar campos dados pessoais -----
-        // ----- valida nome -----
+        //----- validar campos dados pessoais -----
+        //----- valida nome -----
         if (!empty($_POST['name'])) {
             $_name = $_POST['name'];
         } else {
@@ -85,11 +85,18 @@ include('../config.php');
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Cidade!")</script>';
       }
-      }
+    }*/
       if (!$erro_campo){
         include ('include/cadastro.class.php');
-            new Cadastro($_name, $_email, $_cpf, $_rg, $_org, $_uf, $_rua, $_num_ksa, $_cep, $_bairro, $_cidade);
+            //new Cadastro($_name, $_email, $_cpf, $_rg, $_org, $_uf, $_rua, $_num_ksa, $_cep, $_bairro, $_cidade);
+            $cadastro = new Cadastro("fabiano", "fabio@fb.com", "1234568", "123456", "ssp", "pb", "rua", "1", "12345678", "bairro", "jampa");
+            $pessoa = $cadastro->setPessoaFisica();
 
-        require ('../model/daoDb/cadastroDbUser.class.php');
 
+            include ('../model/daoDb/cadastroDbUser.class.php');
+
+
+            //$db = new CadastroDbUser();
+            //$db->cadastrarPessoaFisica($pessoa);
+            //echo 'Meu URL'.BASE_URL;//localhost e diretorio atual
       }

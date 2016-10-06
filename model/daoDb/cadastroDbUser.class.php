@@ -1,12 +1,13 @@
 <?php
-require ('../mysql.php');
-include ('controller/include/pessoa/pessoa.class.php');
+  echo '<script>alert("Inserir Usuario!")</script>';
 
-class CadastroDbUser{
+  require ('../model/mysql.php');
+/*
+class CadastroDbUser {
     private $pessoa;
 
     public function __construct(){
-        cadastrarPessoaFisica(new pessoaFisica());
+        echo 'Meu URL'.BASE_URL;//localhost e diretorio atual
     }
     public function cadastrarPessoaFisica($pessoaFisica){
           $this->pessoa = $pessoaFisica;
@@ -34,4 +35,4 @@ class CadastroDbUser{
           }
 
     }
-}
+}*/

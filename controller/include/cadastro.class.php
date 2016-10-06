@@ -37,6 +37,8 @@ class Cadastro {
                   $pessoaFisica->setUf($this->uf);
 
                   $this->setAddress($pessoaFisica);
+
+                  return $pessoaFisica;
             } catch (Exception $e) {
                   echo '<script>alert("Ocorreu um erro ao cadastro de pessoa Física!")</script>';
             }
@@ -64,7 +66,6 @@ class Cadastro {
                   $pessoa->setCep($this->cep);
                   $pessoa->setNumeroKsa($this->numKsa);
                   $pessoa->setCidade($this->cidade);
-
             } catch (Exception $e) {
                   echo '<script>alert("Ocorreu um erro ao cadastro de endereço!")</script>';
             }
