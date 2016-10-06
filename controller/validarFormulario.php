@@ -1,5 +1,5 @@
 <?php
-include('../config.php');
+include_once ('../config.php');
 
     $erro_campo = false;
 
@@ -87,16 +87,16 @@ include('../config.php');
       }
     }*/
       if (!$erro_campo){
-        include ('include/cadastro.class.php');
+        include_once ('include/pessoa/pessoaFisica.class.php');
             //new Cadastro($_name, $_email, $_cpf, $_rg, $_org, $_uf, $_rua, $_num_ksa, $_cep, $_bairro, $_cidade);
             $cadastro = new Cadastro("fabiano", "fabio@fb.com", "1234568", "123456", "ssp", "pb", "rua", "1", "12345678", "bairro", "jampa");
-            $pessoa = $cadastro->setPessoaFisica();
+            $cadastro->setPessoaFisica();
+            var_dump($cadastro);
+
+        include('../model/daoDb/cadastrodbuser.class.php');
+            $eu = new CadastroDbUser();
+            $eu->cadastrarPessoaFisica();
 
 
-            include ('../model/daoDb/cadastroDbUser.class.php');
-
-
-            //$db = new CadastroDbUser();
-            //$db->cadastrarPessoaFisica($pessoa);
-            //echo 'Meu URL'.BASE_URL;//localhost e diretorio atual
+            //$db->cadastrarPessoaFisica();
       }

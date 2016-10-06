@@ -27,47 +27,4 @@ class Cadastro {
             $this->bairro = $_bairro;
             $this->cidade = $_cidade;
       }
-      public function setPessoaFisica(){
-            try {
-                  $pessoaFisica = new PessoaFisica();
-
-                  $pessoaFisica->setCpf($this->cpf);
-                  $pessoaFisica->setRg($this->rg);
-                  $pessoaFisica->setOrgExp($this->org);
-                  $pessoaFisica->setUf($this->uf);
-
-                  $this->setAddress($pessoaFisica);
-
-                  return $pessoaFisica;
-            } catch (Exception $e) {
-                  echo '<script>alert("Ocorreu um erro ao cadastro de pessoa Física!")</script>';
-            }
-      }
-      public function setPessoaJuridica(){
-            try {
-                  $pessoaJuridica = new PessoaJuridica();
-
-                  $pessoaJuridica->setCnpj($_cnpj);
-                  $pessoaJuridica->setRazaoSocial($_razaoSocial);
-                  $pessoaJuridica->setInscEstd($_inscEstd);
-                  $pessoaJuridica->setTmkting($_tmkting);
-
-                  $this->setAddress($pessoaJuridica);
-            } catch (Exception $e) {
-                  echo '<script>alert("Ocorreu um erro ao cadastro de pessoa Jurídica!")</script>';
-            }
-      }
-      public function setAddress($pessoa){
-            try {
-                  $pessoa->setNome($this->nome);
-                  $pessoa->setEmail($this->email);
-                  $pessoa->setRua($this->rua);
-                  $pessoa->setBairro($this->bairro);
-                  $pessoa->setCep($this->cep);
-                  $pessoa->setNumeroKsa($this->numKsa);
-                  $pessoa->setCidade($this->cidade);
-            } catch (Exception $e) {
-                  echo '<script>alert("Ocorreu um erro ao cadastro de endereço!")</script>';
-            }
-      }
 }
