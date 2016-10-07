@@ -1,10 +1,10 @@
 <?php
 
     // ----- importa arquivo de configuração de sistema -----
-    require('config.php');
+    require 'config.php';
 
     define('TITLE', 'Não Pertube');
-    define('KEY_WORDS', "Procon pb, Não Pertube, Bloqueiar Telemarketing");
+    define('KEY_WORDS', 'Procon pb, Não Pertube, Bloquear Telemarketing');
 
     $PATH_CSS_BOOTSTRAP = '"assets/bootstrap/css/bootstrap.min.css"';
     $PATH_CSS_STYLE = 'assets/css/style.css';
@@ -18,9 +18,6 @@
     $PATH_JS = 'assets/js/scripts.js';
 
     // ----- importar o head do html -----
-    require('/tampletes/header.tpl');
+    require '/tampletes/header.tpl';
     // ----- importa o conteudo html -----
-    require('/tampletes/contenter.tpl');
-
-
-?>
+    require '/tampletes/contenter.tpl';
