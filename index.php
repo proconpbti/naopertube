@@ -19,9 +19,9 @@
     $PATH_JS = 'assets/js/scripts.js';
 
     // ----- importar o head do html -----
-    require('/tampletes/header.tpl');
+    require('/templates/header.tpl');
     // ----- importar o conteudo html -----
-    require('/tampletes/contenter.tpl');
+    require('/templates/content.tpl');
 
 
 ?>
