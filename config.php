@@ -14,8 +14,9 @@
         * - Define uma função de redirecionamento.
 
 */
-// ----- conexao banco -----
-//require('../model/mysql.php');
+// ******* INICIAR SESSIONS ******** //
+session_start();
+// ************ SESSIONS *********** //
 
 if (!defined('LIVE')) DEFINE('LIVE', false);
 // ************ CONSTANTS *********** //
@@ -29,21 +30,18 @@ define ('BASE_URL', HTTP_SERVER);
 //echo 'Meu URL'.BASE_URL;//localhost e diretorio atual
 //echo '<br>Meu URI'.BASE_URI.'<br><br>';//todo caminho do ao projeto"path"
 
-//require_once(MYSQL);
-// ************ CONSTANTS *********** //
-// ********************************** //
-//
-// ******* INICIAR SESSIONS ******** //
-session_start();
-// ************ SESSIONS *********** //
-// ********************************* //
-
 // Esta função redireciona os usuários inválidos .
 
 function redirect_invalid_user() {
 	// Verifique se o item de sessão:
-	if(empty($_SESSION['user_admin']) || $_SESSION['user_admin'] != 'administrador') {
-		header("Location: ../index.php");
+	if(!empty($_SESSION['admin']) || $_SESSION['admin'] == 'administrador') {
+		header("Location: ../system/admin/index.php");
+		exit();
+	} else if (!empty($_SESSION['user']) || $_SESSION['user'] == 'usuario'){
+		header("Location: ../system/user/index.php");
+		exit();
+	}else if (!empty($_SESSION['telmark']) || $_SESSION['telmark'] == 'telemarketing'){
+		header("Location: ../system/telemarketing/index.php");
 		exit();
 	}
 

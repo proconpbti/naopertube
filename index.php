@@ -26,4 +26,4 @@
     include('views/tampletes/contenter.tpl');
 /*
 * file_exists($meu caminho); verifica se o caminho existe
-*/
+*
