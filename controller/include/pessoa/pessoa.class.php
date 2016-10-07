@@ -1,4 +1,5 @@
 <?php
+include ('itensBloqueio.class.php');
 
 abstract class Pessoa implements ItensBloqueio {
     private $nome;
@@ -11,7 +12,7 @@ abstract class Pessoa implements ItensBloqueio {
     private $email;
     private $fone;
     private $qtdFone;
-    
+
     public function getNome() {
         return $this->nome;
     }

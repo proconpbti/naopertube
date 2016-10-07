@@ -15,7 +15,7 @@
 
 */
 // ----- conexao banco -----
-require('../model/mysql.php');
+//require('../model/mysql.php');
 
 if (!defined('LIVE')) DEFINE('LIVE', false);
 // ************ CONSTANTS *********** //
@@ -25,8 +25,9 @@ define ('HTTP_SERVER', $protocol . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVE
 define ('BASE_URI', str_replace('\\', '/', realpath(dirname(__FILE__))) . '/');
 define ('BASE_URL', HTTP_SERVER);
 //define ('MYSQL', BASE_URI.'pages/model/mysql.php');
-//echo 'Meu URL'.BASE_URL;
-//echo '<br>Meu URI'.BASE_URI.'<br><br>';
+
+//echo 'Meu URL'.BASE_URL;//localhost e diretorio atual
+//echo '<br>Meu URI'.BASE_URI.'<br><br>';//todo caminho do ao projeto"path"
 
 //require_once(MYSQL);
 // ************ CONSTANTS *********** //
