@@ -1,11 +1,12 @@
 <?php
+include ('pessoa.class.php');
 
 class PessoaJuridica extends Pessoa {
     private $cnpj;
     private $razaoSocial;
     private $inscEstd;
     private $tmkting;
-    
+
     public function __construct($cnpj, $razaoSocial, $inscEstd, $tmkting) {
         $this->cnpj = $cnpj;
         $this->razaoSocial = $razaoSocial;
@@ -44,4 +45,3 @@ class PessoaJuridica extends Pessoa {
         $this->tmkting = $tmkting;
     }
 }
-

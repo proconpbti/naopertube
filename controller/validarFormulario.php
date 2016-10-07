@@ -1,13 +1,13 @@
 <?php
-//include ('../config.php');
+include_once ('../config.php');
 
+    $erro_campo = false;
 
-      $erro_campo = false;
-      // ----- validar campos cadastrar -----
-      if($_REQUEST["action"] == "save") {
+    /*    // ----- validar campos cadastrar -----
+   if($_REQUEST["action"] == "save") {
 
-        // ----- validar campos dados pessoais -----
-        // ----- valida nome -----
+        //----- validar campos dados pessoais -----
+        //----- valida nome -----
         if (!empty($_POST['name'])) {
             $_name = $_POST['name'];
         } else {
@@ -84,15 +84,19 @@
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Cidade!")</script>';
-        }
       }
+    }*/
       if (!$erro_campo){
-          $cadastro = new Cadastro();
+        include_once ('include/pessoa/pessoaFisica.class.php');
+            //new Cadastro($_name, $_email, $_cpf, $_rg, $_org, $_uf, $_rua, $_num_ksa, $_cep, $_bairro, $_cidade);
+            $cadastro = new Cadastro("fabiano", "fabio@fb.com", "1234568", "123456", "ssp", "pb", "rua", "1", "12345678", "bairro", "jampa");
+            $cadastro->setPessoaFisica();
+            var_dump($cadastro);
 
-          $cadastro->pessoaFisica();
-          $cadastro->pessoaJuridica();
+        include('../model/daoDb/cadastrodbuser.class.php');
+            $eu = new CadastroDbUser();
+            $eu->cadastrarPessoaFisica();
 
-          $cadastroDb = CadastroDbUser(new PessoaFisica());
 
-
+            //$db->cadastrarPessoaFisica();
       }

@@ -1,4 +1,5 @@
 <?php
+include ('pessoa.class.php');
 
 class PessoaFisica extends Pessoa {
 
@@ -7,14 +8,7 @@ class PessoaFisica extends Pessoa {
     private $orgExp;
     private $uf;
 
-    public function __construct($rg, $cpf, $orgExp, $uf) {
-        $this->rg = $rg;
-        $this->cpf = $cpf;
-        $this->orgExp = $orgExp;
-        $this->uf = $uf;
-    }
-
-    public function PessoaFisica(){
+    public function __construct(){
 
     }
 
