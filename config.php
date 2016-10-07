@@ -38,6 +38,19 @@ session_start();
 // ************ SESSIONS *********** //
 // ********************************* //
 
+// Esta função redireciona os usuários inválidos .
+
+function redirect_invalid_user() {
+	// Verifique se o item de sessão:
+	if(empty($_SESSION['user_admin']) || $_SESSION['user_admin'] != 'administrador') {
+		header("Location: ../index.php");
+		exit();
+	}
+
+} // Fim da função redirect_invalid_user().
+
+// ************ FUNÇÃO DE REDIRECIONAMENTO ************ //
+
 // ************ GERENCIAMENTO DE ERROS ************ //
 // Função para manipulação DE erros.
 // Recebe cinco argumentos : número do erro, mensagem de erro (string) , o nome do arquivo onde o erro ocorreu (string)

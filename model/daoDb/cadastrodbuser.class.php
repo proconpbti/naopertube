@@ -1,30 +1,26 @@
 <?php
-require ('../model/mysql.php');
 include_once ('include/pessoa/pessoaFisica.class.php');
 
 class CadastroDbUser {
-
+    //private $pessoa;
     public function __construct(){
-        $pessoa = new PessoaFisica();
-         echo '<script>alert("Construtor cadastro metodo!")</script>';
+
     }
 
-    public function cadastrarPessoaFisica(){
-          // ----- cadastro documento pessoa fisica ----
-         /* try {
-              echo '<script>alert("Construtor cadastro metodo!")</script>';
+    public function cadastrarPessoaFisica($pessoaF){
+            require_once('../model/mysql.php');
 
-              //$sql_dado_pf = "INSERT INTO pessoaFisica (cpf, nome, emailCadastrado, rg, orgaoExpedidor, uf) VALUES ('".getCpf()."','".pessoa->getNome()."','".pessoa->getEmail()."','".pessoa->getRg()."','".pessoa->getOrgExp()."')";
-              $sql_dado_pf = "INSERT INTO pessoaFisica (cpf, nome, emailCadastrado, rg, orgaoExpedidor, uf) VALUES ('"pessoa.getCpf()."','".pessoa->getNome()."','".pessoa->getEmail()."','".pessoa->getRg()."','".pessoa->getOrgExp()."')";
+            $sql_dado_pf = "INSERT INTO pessoaFisica (cpf, nome, emailCadastro, rg, orgaoExpedidor, uf) VALUES ('".$pessoaF->getCpf()."','".$pessoaF->getNome()."','".$pessoaF->getEmail()."','".$pessoaF->getRg()."','".$pessoaF->getOrgExp()."','".$pessoaF->getUf()."')";
+            $result = mysqli_query($dbc, $sql_dado_pf);
 
-              $result = mysqli_query($sql_dado_pf);
+            if($result){
+                echo '<script>alert("Dados Pessoa fisica cadastrada com sucesso!")</script>';
+            } else {
+                printf("Error: %s\n", mysqli_error($dbc));
+            }
+            mysqli_close($dbc);
 
-              if($result){
-                  echo '<script>alert("Dados Pessoa fisica cadastrada com sucesso!")</script>';
-              }
-          } catch (Exception $e) {
-                    echo '<script>alert("Erro ao inserir dados da Pessoa fisica no banco!")</script>';
-          }
+         /*
           // ----- cadastro de endereço da pessoa fisica ----
           try {
               /*$sql_end_pf = "INSERT INTO pessoaFisica (logradouro, numero, cep, bairro, cidade, uf) VALUES('".pessoa->getRua()."','".pessoa->getNumeroKsa()."','".pessoa->getCep()."','".pessoa->getBairro()."','".pessoa->getUf()."')";
