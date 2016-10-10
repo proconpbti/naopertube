@@ -13,7 +13,7 @@
 
     $PATH_IMG_LOGO = 'views/assets/img/procon.png';
 
-    $PATH_LINK_LOGIN = 'controller/login.php?action=login';
+    $PATH_LINK_LOGIN = 'controller/validarlogin.php?action=login';
     $PATH_LINK_REGISTER = 'controller/validarFormulario.php?action=save';
 
     $PATH_JS_JAQUERY = 'views/assets/js/jquery-1.8.2.min.js';
@@ -29,10 +29,14 @@
 
 ?>
 =======
-    include('views/tampletes/header.tpl');
+    include('views/templetes/header.tpl');
     // ----- importar o conteudo html -----
-    include('views/tampletes/contenter.tpl');
+    include('views/templetes/contenter.tpl');
 /*
 * file_exists($meu caminho); verifica se o caminho existe
+<<<<<<< HEAD
+*
+=======
 */
+>>>>>>> proconpbti/master
 >>>>>>> proconpbti/master

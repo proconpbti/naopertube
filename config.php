@@ -1,5 +1,4 @@
 <?php
-
 /* 	*
 	* Titulo: config.php
 	* Desenvolvido por: Fabiano
@@ -14,8 +13,9 @@
         * - Define uma função de redirecionamento.
 
 */
-// ----- conexao banco -----
-//require('../model/mysql.php');
+// ******* INICIAR SESSIONS ******** //
+session_start();
+// ************ SESSIONS *********** //
 
 if (!defined('LIVE')) DEFINE('LIVE', false);
 // ************ CONSTANTS *********** //
@@ -29,14 +29,24 @@ define ('BASE_URL', HTTP_SERVER);
 //echo 'Meu URL'.BASE_URL;//localhost e diretorio atual
 //echo '<br>Meu URI'.BASE_URI.'<br><br>';//todo caminho do ao projeto"path"
 
-//require_once(MYSQL);
-// ************ CONSTANTS *********** //
-// ********************************** //
-//
-// ******* INICIAR SESSIONS ******** //
-session_start();
-// ************ SESSIONS *********** //
-// ********************************* //
+// Esta função redireciona os usuários inválidos .
+
+function redirect_invalid_user() {
+	// Verifique se o item de sessão:
+	if(!empty($_SESSION['user']) && $_SESSION['user'] == 'admin') {
+		header("Location: ../system/admin/views/index.php");
+		exit();
+	} else if (!empty($_SESSION['user']) && $_SESSION['user'] == 'user'){
+		header("Location: ../system/user/views/index.php");
+		exit();
+	}else if (!empty($_SESSION['user']) && $_SESSION['user'] == 'telmark'){
+		header("Location: ../system/telemarketing/views/index.php");
+		exit();
+	}
+
+} // Fim da função redirect_invalid_user().
+
+// ************ FUNÇÃO DE REDIRECIONAMENTO ************ //
 
 // ************ GERENCIAMENTO DE ERROS ************ //
 // Função para manipulação DE erros.
