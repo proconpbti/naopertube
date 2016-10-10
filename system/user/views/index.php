@@ -12,7 +12,7 @@
 
   $PATH_IMG_LOGO = '../../../views/assets/img/procon.png';
 
-  $PATH_LINK_LOGIN = 'controller/logout.php?action=logout';
+  $PATH_LINK_LOGOUT = '../../../controller/validarlogin.php?action=logout';
 
   $PATH_JS_JAQUERY = '../../../views/assets/js/jquery-1.8.2.min.js';
   $PATH_JS_BOOTSTRAP = '../../../views/assets/bootstrap/js/bootstrap.min.js';

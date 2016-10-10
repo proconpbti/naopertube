@@ -1,5 +1,4 @@
 <?php
-
 /* 	*
 	* Titulo: config.php
 	* Desenvolvido por: Fabiano
@@ -34,14 +33,14 @@ define ('BASE_URL', HTTP_SERVER);
 
 function redirect_invalid_user() {
 	// Verifique se o item de sessão:
-	if(!empty($_SESSION['admin']) || $_SESSION['admin'] == 'administrador') {
-		header("Location: ../system/admin/index.php");
+	if(!empty($_SESSION['user']) && $_SESSION['user'] == 'admin') {
+		header("Location: ../system/admin/views/index.php");
 		exit();
-	} else if (!empty($_SESSION['user']) || $_SESSION['user'] == 'usuario'){
-		header("Location: ../system/user/index.php");
+	} else if (!empty($_SESSION['user']) && $_SESSION['user'] == 'user'){
+		header("Location: ../system/user/views/index.php");
 		exit();
-	}else if (!empty($_SESSION['telmark']) || $_SESSION['telmark'] == 'telemarketing'){
-		header("Location: ../system/telemarketing/index.php");
+	}else if (!empty($_SESSION['user']) && $_SESSION['user'] == 'telmark'){
+		header("Location: ../system/telemarketing/views/index.php");
 		exit();
 	}
 
