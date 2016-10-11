@@ -23,8 +23,20 @@
             <div class="row">
                 <div class="logo span4"> <img src="<?php echo $PATH_IMG_LOGO;?>" alt="" height="" width="250"> </div>
                 <div class="links span8">
-                    <form class="form-inline"  action="<?php echo $PATH_LINK_LOGIN;?>" method="post"> <label for="labelUser">Email</label> <input class="form-control" id="email" placeholder="usuario@dominio.com" type="email"> <label for="senha">Senha</label> <input class="form-control" id="pwd"  type="password" ><button type="submit" class="btn btn-default">Logar</button>
-                    </form>
+                    <div class='user'>Bem vindo <?php if(!empty($_SESSION['username'])) echo $_SESSION['username']; else echo 'Visitante'; ?></div>
+                    <?php
+                           if (empty($_SESSION['user_id'])) {
+                                 echo"<form class='form-inline'  action= '$PATH_LINK_LOGIN'; method='post'>";
+                                 echo"<label for='email'>Email</label>";
+                                 echo"<input id='email' name='email' placeholder='usuario@dominio.com' type='email'>";
+                                 echo"<label for='senha'>Senha</label>";
+                                 echo"<input id='pwd' name='pwd' type='password' >";
+                                 echo"<button type='submit' class='btn btn-default'>Logar</button>";
+                                 echo"</form>";
+                            } else {
+                                echo"<a href='$PATH_LINK_LOGOUT'>Sair</a>";
+                            }
+                    ?>
                 </div>
             </div>
         </div>
