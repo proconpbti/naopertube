@@ -21,22 +21,6 @@
     $PATH_JS = 'views/assets/js/scripts.js';
 
     // ----- importar o head do html -----
-<<<<<<< HEAD
-    require('/templates/header.tpl');
+    include('views/templates/header.tpl');
     // ----- importar o conteudo html -----
-    require('/templates/content.tpl');
-
-
-?>
-=======
-    include('views/templetes/header.tpl');
-    // ----- importar o conteudo html -----
-    include('views/templetes/contenter.tpl');
-/*
-* file_exists($meu caminho); verifica se o caminho existe
-<<<<<<< HEAD
-*
-=======
-*/
->>>>>>> proconpbti/master
->>>>>>> proconpbti/master
+    include('views/templates/content.tpl');

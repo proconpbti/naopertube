@@ -19,5 +19,5 @@
   $PATH_JS = '../../../views/assets/js/scripts.js';
 
   // ----- importar o head do html -----
-  include('../../../views/tampletes/header.tpl');
+  include('../../../views/templates/header.tpl');
   // ----- importar o conteudo html -----

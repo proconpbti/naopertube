@@ -2,7 +2,12 @@
     <h2>Não Pertube </h2><span class="red"><strong>Bloqueio de Ligações de Empresa de Telemarketing<br></strong></span>
     <div class="row" id="tag-fb-procon">
         <div class="register span6">
-            <form style="background-color: #f8f8f8;" action="<?php echo $PATH_LINK_REGISTER;?>" method="post">
+
+           <form style="background-color: #f8f8f8;" action="<?php echo $PATH_LINK_REGISTER;?>" method="post">
+               <div class="btn-group" id="tipo-user" role="group" aria-label="...">
+                 <button type="button" class="btn btn-default">Pessoa Física</button>
+                 <button type="button" class="btn btn-default">Pessoa Jurídica</button>
+               </div>
                 <h2 id="edit">CADASTRE-SE <br>
                 <?php //Para Pessoa Fisica  ?>
                     <span class="red"><strong><?php if(true){echo INFO_PF;} else {echo INFO_PJ;}?></strong></span></h2>
