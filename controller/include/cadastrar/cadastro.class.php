@@ -1,5 +1,5 @@
 <?php
- include ('pessoa/pessoaFisica.class.php');
+ include ('../pessoa/pessoaFisica.class.php');
 
 class Cadastro {
       private $nome;

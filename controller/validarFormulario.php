@@ -87,7 +87,7 @@ include_once ('../config.php');
       }
     }
       if (!$erro_campo){
-        include_once ('include/cadastro.class.php');
+        include_once ('include/cadastrar/cadastro.class.php');
 
             $cadastro = new Cadastro($_name, $_email, $_cpf, $_rg, $_org, $_uf, $_rua, $_num_ksa, $_cep, $_bairro, $_cidade);
             $cadastro->setPessoaFisica();
