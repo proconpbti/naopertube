@@ -25,9 +25,7 @@ class ValidarData {
         return $this;
     }
 
-
     /**
-     *
      * @access protected
      * @return void
      */
@@ -51,8 +49,6 @@ class ValidarData {
             'is_slug'        => '%s não é um slug ',
         );
     }
-
-
     /**
      * @access public
      * @return int Numeros de metodos validos
@@ -60,7 +56,6 @@ class ValidarData {
     public function get_number_validators_methods(){
         return count($this->_messages);
     }
-
     /**
      * @access public
      * @param String $name nome da função
@@ -72,21 +67,37 @@ class ValidarData {
             $this->_messages[$name] = $value;
         }
     }
-
-
     /**
      * @access public
      * @param String $param [optional] especificação da função
      * @return todos erros ou erro especifico
      */
-    public function get_messages($param = false){
+    public function get_messages($param){
         if ($param){
             return $this->_messages[$param];
         }
         return $this->_messages;
     }
-
-
+    /**
+     * Validate dados
+     * @access public
+     * @return Se tiver algum erro nos campos retorna false se nao True
+     */
+    public function validate(){
+        return (count($this->_errors) > 0 ? false : true);
+    }
+    /**
+     * @param String $param [optional] especific o erro
+     * @return
+     */
+    public function get_errors($param){
+        echo '<script>alert("retorna erros!")</script>';
+        if(isset($this->_errors[$this->_pattern['prefix'] . $param . $this->_pattern['sufix']])){
+            return $this->_errors[$this->_pattern['prefix'] . $param . $this->_pattern['sufix']];
+        } else {
+            return false;
+        }
+    }
     /**
      * @access public
      * @param String $prefix [optional] prefixo do nome
@@ -97,8 +108,6 @@ class ValidarData {
         $this->_pattern['prefix'] = $prefix;
         $this->_pattern['sufix']  = $sufix;
     }
-
-
     /**
      * @access protected
      * @param String $error message de erro
@@ -107,7 +116,6 @@ class ValidarData {
     protected function set_error($error){
         $this->_errors[$this->_pattern['prefix'] . $this->_data['name'] . $this->_pattern['sufix']][] = $error;
     }
-
     /**
      * @access public
      * @return ValidarData instance
@@ -118,8 +126,6 @@ class ValidarData {
         }
         return $this;
     }
-
-
     /**
      * @access public
      * @param Int $length valor a comparar
@@ -133,8 +139,6 @@ class ValidarData {
         }
         return $this;
     }
-
-
     /**
      * @access public
      * @param Int $length  valor a comparar
@@ -160,11 +164,10 @@ class ValidarData {
         }
         return $this;
     }
-
     /**
-     * Verify if the current data is a slug
+     * Verifica dados slug
      * @access public
-     * @return Data_Validator The self instance
+     * @return instance
      */
     public function is_slug(){
         $verify = true;
@@ -183,12 +186,10 @@ class ValidarData {
         }
         return $this;
     }
-
-
     /**
-     * Verify if the current data is a numeric value
+     * Verifica se e um valor numerico
      * @access public
-     * @return Data_Validator The self instance
+     * @return  instance
      */
     public function is_num(){
         if (!is_numeric($this->_data['value'])){
@@ -196,11 +197,10 @@ class ValidarData {
         }
         return $this;
     }
-
     /**
-     * Verify if the current data is a array
+     * Verifica se e array
      * @access public
-     * @return Data_Validator The self instance
+     * @return instance
      */
     public function is_arr(){
         if(!is_array($this->_data['value'])){
@@ -208,13 +208,12 @@ class ValidarData {
         }
         return $this;
     }
-
     /**
-     * Verify if the current data is equals than the parameter
+     * Verifica parametros iguais
      * @access public
-     * @param String $value The value for compare
-     * @param Boolean $identical [optional] Identical?
-     * @return Data_Validator The self instance
+     * @param String $value para comparar
+     * @param Boolean $identical [optional] Identico?
+     * @return instance
      */
     public function is_equals($value, $identical = false){
         $verify = ($identical === true ? $this->_data['value'] === $value : strtolower($this->_data['value']) == strtolower($value));
@@ -225,9 +224,9 @@ class ValidarData {
     }
 
     /**
-     * Verify if the current data is a valid CPF
+     * Verifica valida CPF
      * @access public
-     * @return Data_Validator The self instance
+     * @return instance
      */
     public function is_cpf(){
         $verify = true;
@@ -256,12 +255,10 @@ class ValidarData {
 
         return $this;
     }
-
-
     /**
-     * Verify if the current data is a valid CNPJ
+     * Verifica e valida CNPJ
      * @access public
-     * @return Data_Validator The self instance
+     * @return instance
      */
     public function is_cnpj(){
         $verify = true;
@@ -287,26 +284,23 @@ class ValidarData {
 
         return $this;
     }
-
     /**
-     * Verify if the current data contains just alpha caracters
+     * Verifica se e numeros ou caracteres
      * @access protected
-     * @param String $string_format The regex
-     * @param String $additional [optional] The extra caracters
-     * @return Boolean True if data is valid or false otherwise
+     * @param String $string_format
+     * @param String $additional [optional]
+     * @return Boolean True for valido
      */
     protected function generic_alpha_num($string_format, $additional = ''){
         $this->_data['value'] = (string) $this->_data['value'];
         $clean_input = str_replace(str_split($additional), '', $this->_data['value']);
         return ($clean_input !== $this->_data['value'] && $clean_input === '') || preg_match($string_format, $clean_input);
     }
-
-
     /**
-     * Verify if the current data contains just alpha caracters
+     * Verifica se e caracteres
      * @access public
-     * @param String $additional [optional] The extra caracters
-     * @return Data_Validator The self instance
+     * @param String $additional [optional]
+     * @return instance
      */
     public function is_alpha($additional = ''){
         $string_format = '/^(\s|[a-zA-Z])*$/';
@@ -315,13 +309,11 @@ class ValidarData {
         }
         return $this;
     }
-
-
     /**
-     * Verify if the current data contains just alpha-numerics caracters
+     * Verifica se e numeros
      * @access public
-     * @param String $additional [optional] The extra caracters
-     * @return Data_Validator The self instance
+     * @param String $additional [optional]
+     * @return instance
      */
     public function is_alpha_num($additional = ''){
         $string_format = '/^(\s|[a-zA-Z0-9])*$/';
@@ -330,12 +322,10 @@ class ValidarData {
         }
         return $this;
     }
-
-
     /**
-     * Verify if the current data no contains white spaces
+     * Vrificar espaço em brancos
      * @access public
-     * @return Data_Validator The self instance
+     * @return instance
      */
     public function no_whitespaces(){
         $verify = is_null($this->_data['value']) || preg_match('#^\S+$#', $this->_data['value']);
@@ -344,12 +334,10 @@ class ValidarData {
         }
         return $this;
     }
-
-
     /**
-     * Verify if the current data is a valid Phone Number (8 or 9 digits)
+     * Verifica numero de telefone (8 or 9 digits)
      * @access public
-     * @return Data_Validator The self instance
+     * @return instance
      */
     public function is_phone(){
         $verify = preg_match('/^(\(0?\d{2}\)\s?|0?\d{2}[\s.-]?)\d{4,5}[\s.-]?\d{4}$/', $this->_data['value']);
@@ -358,11 +346,10 @@ class ValidarData {
         }
         return $this;
     }
-
     /**
-     * Verify if the current data is a valid Zip Code (Brazil)
+     * Verificar Codigo postal (Brazil)
      * @access public
-     * @return Data_Validator The self instance
+     * @return instance
      */
     public function is_zipCode(){
         $verify = preg_match('/^[0-9]{5}-[0-9]{3}$/', $this->_data['value']);
@@ -370,35 +357,5 @@ class ValidarData {
             $this->set_error(sprintf($this->_messages['is_zipCode'], $this->_data['name']));
         }
         return $this;
-    }
-
-
-    /**
-     * Validate the data
-     * @access public
-     * @return bool The validation of data
-     */
-    public function validate(){
-        return (count($this->_errors) > 0 ? false : true);
-    }
-
-
-    /**
-     * The messages of invalid data
-     * @param String $param [optional] A specific error
-     * @return Mixed One array with messages or a message of specific error
-     */
-    public function get_errors($param){
-        echo '<script>alert("gt erro!")</script>';
-        if ($param){
-            echo '<script>alert("true!")</script>';
-            if(isset($this->_errors[$this->_pattern['prefix'] . $param . $this->_pattern['sufix']])){
-                return $this->_errors[$this->_pattern['prefix'] . $param . $this->_pattern['sufix']];
-            }
-            else{
-                return false;
-            }
-        }
-        return $this->_errors;
     }
 }
