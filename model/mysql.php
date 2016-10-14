@@ -1,7 +1,7 @@
 <?php
 
 DEFINE ('DB_USER', 'root');
-DEFINE ('DB_PASSWORD', 'pr0c0np!@#');
+DEFINE ('DB_PASSWORD', 'fabioadmin');
 DEFINE ('DB_HOST', 'localhost');
 DEFINE ('DB_NAME', 'nao_pertube');
 

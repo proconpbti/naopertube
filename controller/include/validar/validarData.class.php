@@ -1,5 +1,4 @@
 <?php
-namespace validar;
 
 class ValidarData {
 
@@ -114,7 +113,7 @@ class ValidarData {
      * @return ValidarData instance
      */
     public function is_required(){
-        if (empty ($this->_data['value'])){
+        if (empty($this->_data['value'])){
             $this->set_error(sprintf($this->_messages['is_required'], $this->_data['name']));
         }
         return $this;
@@ -389,8 +388,10 @@ class ValidarData {
      * @param String $param [optional] A specific error
      * @return Mixed One array with messages or a message of specific error
      */
-    public function get_errors($param = false){
+    public function get_errors($param){
+        echo '<script>alert("gt erro!")</script>';
         if ($param){
+            echo '<script>alert("true!")</script>';
             if(isset($this->_errors[$this->_pattern['prefix'] . $param . $this->_pattern['sufix']])){
                 return $this->_errors[$this->_pattern['prefix'] . $param . $this->_pattern['sufix']];
             }
