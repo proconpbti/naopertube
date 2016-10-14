@@ -20,4 +20,6 @@
 
   // ----- importar o head do html -----
   include('../../../views/templates/header.tpl');
+
   // ----- importar o conteudo html -----
+  include('templates/admin.tpl');
