@@ -1,7 +1,12 @@
 <?php
-include_once ('../config.php');
-include_once ('/iclude/validar/validarData.class.php');
 
+
+include ('../config.php');
+echo '<br>Meu URI'.BASE_URI.'<br><br>';
+
+
+echo '<script>alert("Validação!")</script>';
+$ok = true;
 /*
     // ----- validar campos cadastrar -----
    if($_REQUEST["action"] == "save") {
@@ -86,8 +91,9 @@ include_once ('/iclude/validar/validarData.class.php');
             echo '<script>alert("Preencha Campo Cidade!")</script>';
       }
     }
-    */
-    if($_REQUEST["action"] == "save") {
+
+*/
+    if($_REQUEST["action"] == "ave") {
         echo '<script>alert("Validação!")</script>';
         $validar = new ValidarData();
 
@@ -108,7 +114,7 @@ include_once ('/iclude/validar/validarData.class.php');
         //$validar->set('cidade', $_POST['cidade'])->is_required();
 
     }
-      if ($validar->validate()) {
+     /* if ($validar) {
           echo '<script>alert("sem erros!")</script>';
         include_once ('include/cadastrar/cadastro.class.php');
 
@@ -122,4 +128,4 @@ include_once ('/iclude/validar/validarData.class.php');
            $eu->cadastrarPessoaFisica($pessoaF);
 
            redirect_invalid_user();
-      }
+      }*/
