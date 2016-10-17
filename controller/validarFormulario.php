@@ -1,11 +1,9 @@
 <?php
-include_once ('../config.php');
-include_once ('/iclude/validar/validarData.class.php');
+include ('../config.php');
 
-/*
+    $erro_campo = false;
     // ----- validar campos cadastrar -----
    if($_REQUEST["action"] == "save") {
-
         //----- validar campos dados pessoais -----
         //----- valida nome -----
         if (!empty($_POST['name'])) {
@@ -13,6 +11,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Nome!")</script>';
+            redirect_page();
         }
         // ----- valida email -----
         if (!empty($_POST['email'])) {
@@ -20,6 +19,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Email!")</script>';
+            redirect_page();
         }
         // ----- valida cpf -----
         if (!empty($_POST['cpf'])) {
@@ -27,6 +27,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo CPF!")</script>';
+            redirect_page();
         }
         // ----- valida rg -----
         if (!empty($_POST['rg'])) {
@@ -34,6 +35,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo RG!")</script>';
+            redirect_page();
         }
         // ----- valida orgao expeditor -----
         if (!empty($_POST['org'])) {
@@ -41,6 +43,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Orgão Expeditor!")</script>';
+            redirect_page();
         }
         // ----- valida uf -----
         if (!empty($_POST['uf'])) {
@@ -48,6 +51,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo UF!")</script>';
+            redirect_page();
         }
         // ----- validar campos dados endreço -----
         // ----- valida rua -----
@@ -56,6 +60,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Rua!")</script>';
+            redirect_page();
         }
         // ----- valida numero casa -----
         if (!empty($_POST['num_ksa'])) {
@@ -63,6 +68,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Numero da casa!")</script>';
+            redirect_page();
         }
         // ----- valida cep -----
         if (!empty($_POST['cep'])) {
@@ -70,6 +76,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo CEP!")</script>';
+            redirect_page();
         }
         // ----- valida bairro -----
         if (!empty($_POST['bairro'])) {
@@ -77,6 +84,7 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Bairro!")</script>';
+            redirect_page();
         }
         // ----- valida cidade -----
         if (!empty($_POST['cidade'])) {
@@ -84,10 +92,12 @@ include_once ('/iclude/validar/validarData.class.php');
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Cidade!")</script>';
+            redirect_page();
       }
     }
-    */
-    if($_REQUEST["action"] == "save") {
+
+
+    /*if($_REQUEST["action"] == "ave") {
         echo '<script>alert("Validação!")</script>';
         $validar = new ValidarData();
 
@@ -107,8 +117,8 @@ include_once ('/iclude/validar/validarData.class.php');
         //$validar->set('bairro', $_POST['bairro'])->is_required();
         //$validar->set('cidade', $_POST['cidade'])->is_required();
 
-    }
-      if ($validar->validate()) {
+    }*/
+    if (!$erro_campo) {
           echo '<script>alert("sem erros!")</script>';
         include_once ('include/cadastrar/cadastro.class.php');
 
@@ -121,5 +131,5 @@ include_once ('/iclude/validar/validarData.class.php');
            $eu = new CadastroDbUser();
            $eu->cadastrarPessoaFisica($pessoaF);
 
-           redirect_invalid_user();
+           redirect_user();
       }

@@ -23,7 +23,7 @@ if ($_REQUEST['action'] == 'login') {
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['user_id'] = $row['id'];
 
-                redirect_invalid_user();
+                redirect_user();
             } else { // Endereço de e-mail direito, senha inválida.
                         $login_errors['login'] = 'O endereço de e-mail e senha não coincidem.';
                 echo '<script>alert("retornou index senha incorreta!")</script>';
