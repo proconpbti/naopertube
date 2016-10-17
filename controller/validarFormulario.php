@@ -1,16 +1,9 @@
 <?php
-
-
 include ('../config.php');
-echo '<br>Meu URI'.BASE_URI.'<br><br>';
 
-
-echo '<script>alert("Validação!")</script>';
-$ok = true;
-/*
+    $erro_campo = false;
     // ----- validar campos cadastrar -----
    if($_REQUEST["action"] == "save") {
-
         //----- validar campos dados pessoais -----
         //----- valida nome -----
         if (!empty($_POST['name'])) {
@@ -18,6 +11,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Nome!")</script>';
+            redirect_page();
         }
         // ----- valida email -----
         if (!empty($_POST['email'])) {
@@ -25,6 +19,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Email!")</script>';
+            redirect_page();
         }
         // ----- valida cpf -----
         if (!empty($_POST['cpf'])) {
@@ -32,6 +27,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo CPF!")</script>';
+            redirect_page();
         }
         // ----- valida rg -----
         if (!empty($_POST['rg'])) {
@@ -39,6 +35,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo RG!")</script>';
+            redirect_page();
         }
         // ----- valida orgao expeditor -----
         if (!empty($_POST['org'])) {
@@ -46,6 +43,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Orgão Expeditor!")</script>';
+            redirect_page();
         }
         // ----- valida uf -----
         if (!empty($_POST['uf'])) {
@@ -53,6 +51,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo UF!")</script>';
+            redirect_page();
         }
         // ----- validar campos dados endreço -----
         // ----- valida rua -----
@@ -61,6 +60,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Rua!")</script>';
+            redirect_page();
         }
         // ----- valida numero casa -----
         if (!empty($_POST['num_ksa'])) {
@@ -68,6 +68,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Numero da casa!")</script>';
+            redirect_page();
         }
         // ----- valida cep -----
         if (!empty($_POST['cep'])) {
@@ -75,6 +76,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo CEP!")</script>';
+            redirect_page();
         }
         // ----- valida bairro -----
         if (!empty($_POST['bairro'])) {
@@ -82,6 +84,7 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Bairro!")</script>';
+            redirect_page();
         }
         // ----- valida cidade -----
         if (!empty($_POST['cidade'])) {
@@ -89,11 +92,12 @@ $ok = true;
         } else {
             $erro_campo = true;
             echo '<script>alert("Preencha Campo Cidade!")</script>';
+            redirect_page();
       }
     }
 
-*/
-    if($_REQUEST["action"] == "ave") {
+
+    /*if($_REQUEST["action"] == "ave") {
         echo '<script>alert("Validação!")</script>';
         $validar = new ValidarData();
 
@@ -113,8 +117,8 @@ $ok = true;
         //$validar->set('bairro', $_POST['bairro'])->is_required();
         //$validar->set('cidade', $_POST['cidade'])->is_required();
 
-    }
-     /* if ($validar) {
+    }*/
+    if (!$erro_campo) {
           echo '<script>alert("sem erros!")</script>';
         include_once ('include/cadastrar/cadastro.class.php');
 
@@ -127,5 +131,5 @@ $ok = true;
            $eu = new CadastroDbUser();
            $eu->cadastrarPessoaFisica($pessoaF);
 
-           redirect_invalid_user();
-      }*/
+           redirect_user();
+      }

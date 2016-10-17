@@ -30,7 +30,6 @@ define ('BASE_URL', HTTP_SERVER);
 //echo '<br>Meu URI'.BASE_URI.'<br><br>';//todo caminho do ao projeto"path"
 
 // Esta função redireciona os usuários inválidos .
-
 function redirect_user() {
 	// Verifique se o item de sessão:
 	if(!empty($_SESSION['user']) && $_SESSION['user'] == 'admin') {
@@ -43,8 +42,14 @@ function redirect_user() {
 		header("Location: ../system/telemarketing/views/index.php");
 		exit();
 	}
-
 } // Fim da função redirect_invalid_user().
+
+// *************** FUNÇÃO DE RETORNA PAGINA CAMPO EM BRANCO ************** //
+function redirect_page(){
+		echo '<body onload="window.history.back();">';
+		exit;
+}
+// ************ FIM FUNÇÃO DE RETORNA PAGINA CAMPO EM BRANCO ************ //
 
 // ************ FUNÇÃO DE REDIRECIONAMENTO ************ //
 
