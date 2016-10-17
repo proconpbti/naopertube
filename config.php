@@ -31,7 +31,7 @@ define ('BASE_URL', HTTP_SERVER);
 
 // Esta função redireciona os usuários inválidos .
 
-function redirect_invalid_user() {
+function redirect_user() {
 	// Verifique se o item de sessão:
 	if(!empty($_SESSION['user']) && $_SESSION['user'] == 'admin') {
 		header("Location: ../system/admin/views/index.php");

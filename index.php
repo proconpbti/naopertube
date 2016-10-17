@@ -3,6 +3,8 @@
     // ----- importa arquivo de configuração de sistema -----
     include ('config.php');
 
+    redirect_user();
+
     define('TITLE', 'Não Pertube');
     define('INFO_PF', 'Pessoa Física');
     define('INFO_PJ', 'Pessoa Jurídica');
